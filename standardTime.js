@@ -1,6 +1,10 @@
+var deatonSec = 0;
+var deatonMin = 0;
+var deatonHour = 0;
+
 function updateTime () {
     
-    var now = moment.utc().format("dddd, MMMM Do, YYYY, HH:mm:ss");
+    var now = moment.utc().format("HH:mm:ss");
   
     $("#currentDay").text(now);
 };
@@ -8,7 +12,8 @@ function updateTime () {
 setInterval(updateTime, 1000);
 updateTime();
 
-function updateDeatonTime () {
+
+function getDeatonTime () {
 
     var hour = moment.utc().format("HH");
 
@@ -18,18 +23,64 @@ function updateDeatonTime () {
 
     var deatonTime = ((hour*3600) + (minute*60) + second*1)/8640;
 
-    var deatonHour = Math.floor(deatonTime);
+    console.log (deatonTime);
 
-    var deatonMin = (deatonTime - deatonHour)*100;
+    deatonHour = Math.floor(deatonTime);
 
-    var deatonSec = (deatonMin - Math.floor(deatonMin))*100;
+    deatonMinutes = (deatonTime - deatonHour)*100;
 
-    $("#currentDay2").text(deatonHour + ":" + Math.floor(deatonMin) + ":" + Math.round(deatonSec));
+    deatonMin = Math.floor((deatonTime - deatonHour)*100);
 
+    deatonSec = Math.round((deatonMinutes - deatonMin)*100);
+
+    $("#currentDay2").text(deatonHour + ":" + deatonMin + ":" + deatonSec);
 
 };
 
-setInterval(updateDeatonTime, 12);
+function updateDeatonTime () {
+
+    deatonSec++;
+
+    if (deatonSec > 99) {
+        deatonSec = 0;
+        deatonMin++;
+    }
+
+    if (deatonMin > 99) {
+        deatonMin = 0;
+        deatonHour++;
+    }
+
+    if (deatonHour > 9) {
+        deatonHour = 0;
+    }
+
+    if (deatonSec < 10) {
+
+        var displayDeatonSec = "0" + deatonSec;  
+    }
+
+    else {
+        displayDeatonSec = deatonSec;
+    }
+
+    if (deatonMin < 10) {
+
+        var displayDeatonMin = "0" + deatonMin;  
+    }
+
+    else {
+        displayDeatonMin = deatonMin;
+    }
+
+    $("#currentDay2").text(deatonHour + ":" + displayDeatonMin + ":" + displayDeatonSec);
+    
+
+}
+
+
+
 setInterval(updateTime, 1000);
-updateDeatonTime ();
 updateTime();
+getDeatonTime ();
+setInterval(updateDeatonTime, 864);

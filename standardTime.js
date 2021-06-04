@@ -3,10 +3,14 @@ var deatonMin = 0;
 var deatonHour = 0;
 
 function updateTime () {
+
+    var date = moment.utc().format("dddd, MMMM Do, YYYY")
     
     var now = moment.utc().format("HH:mm:ss");
   
-    $("#currentDay").text(now);
+    $("#currentTime").text(now);
+
+    $("#currentDate").text(date);
 };
 
 setInterval(updateTime, 1000);
@@ -33,7 +37,7 @@ function getDeatonTime () {
 
     deatonSec = Math.round((deatonMinutes - deatonMin)*100);
 
-    $("#currentDay2").text(deatonHour + ":" + deatonMin + ":" + deatonSec);
+    $("#currentTime2").text("0" + deatonHour + ":" + deatonMin + ":" + deatonSec);
 
 };
 
@@ -73,7 +77,7 @@ function updateDeatonTime () {
         displayDeatonMin = deatonMin;
     }
 
-    $("#currentDay2").text(deatonHour + ":" + displayDeatonMin + ":" + displayDeatonSec);
+    $("#currentTime2").text("0" + deatonHour + ":" + displayDeatonMin + ":" + displayDeatonSec);
     
 
 }

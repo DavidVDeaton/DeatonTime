@@ -1,5 +1,109 @@
-
 body {
-    font-size: 65px;
+    font-size: 50px;
     font-family: Courier, Lucida, monospace;
+    background-color: rgba(100, 100, 100, .25);
+}
+
+header {
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr auto;
+}
+
+.right {
+    display: grid;
+    place-items: center;
+    margin: 5px 50px 5px 5px;
+}
+
+.left {
+    display: grid;
+    place-items: center;
+    margin: 5px;
+}
+
+p {
+    margin: 5px;
+}
+
+.lead {
+    font-size: 65px;
+}
+
+h1 {
+    margin: 25px;
+}
+
+@media screen and (max-width:1449px) {
+
+    body {
+        font-size: 38px;
+    }
+
+    .lead {
+        font-size: 45px;
+    }
+
+}
+
+@media screen and (max-width:1270px) {
+
+    #currentDate {
+        font-size: 30px;
+    }
+
+}
+
+@media screen and (max-width:1165px) {
+
+    #currentDate {
+        font-size: 26px;
+    }
+
+}
+
+@media screen and (max-width:1110px) {
+
+    body {
+        font-size: 30px;
+    }
+
+    .lead {
+        font-size: 38px;
+    }
+
+    #currentDate {
+        font-size: 22px;
+    }
+
+}
+
+@media screen and (max-width:1060px) {
+
+    body {
+        font-size: 50px;
+    }
+    
+    .right {
+        margin: 20px 5px 5px 5px;
+    }
+    
+    .lead {
+        font-size: 65px;
+    }
+
+    .container {
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+    }
+
+    #currentDate {
+        font-size: 50px;
+    }
+
 }

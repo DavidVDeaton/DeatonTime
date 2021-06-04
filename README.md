@@ -31,7 +31,7 @@ However, do not get hung up and frustrated by the conversion.  Just as the dista
 
 Please check out my youtube video where I explain Deaton Time in more detail and view the side by side 24 Hour and 10 Hour Clocks.
 
-Please visit [https://davidvdeaton.github.io/JavaScript-Quiz/](https://davidvdeaton.github.io/JavaScript-Quiz/).
+Please visit [https://davidvdeaton.github.io/DeatonTime/](https://davidvdeaton.github.io/DeatonTime/).
 
 # Technology
 The following technologies have been used for this project:
